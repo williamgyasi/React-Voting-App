@@ -1,6 +1,7 @@
 import React,{useContext} from 'react'
 import AdminHeaderBar from '../Components/AdminHeaderBar'
 import {firebaseAuth} from '../ContextProviders/UserAuthProvider';
+import {Container,Button,Typography,TextField} from '@material-ui/core'
 
 
 const AddCandidate =()=>{
@@ -10,7 +11,9 @@ const AddCandidate =()=>{
     return(
         <div>
           <AdminHeaderBar email={email} handleSignOut={handleSignOut} />
-          <h3>WELCOME TO ADD A CANDIDATE</h3>
+          <Container>
+
+          </Container>
         </div>
     )
 }

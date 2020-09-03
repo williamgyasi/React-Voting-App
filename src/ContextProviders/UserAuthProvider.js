@@ -1,5 +1,5 @@
 import React,{useState,useEffect} from 'react';
-import firebase,{auth} from 'firebase'
+import firebase from 'firebase'
 import {authMethods} from '../Firebase/authMethods'
 export const firebaseAuth = React.createContext()
 
@@ -20,6 +20,7 @@ const AuthProvider = (props) => {
           }
           console.log("ADKABDJA")
           setAdmin(currentUser)
+          console.log(currentUser)
           // setUserID(currentUser.uid)
           //   console.log(userID)
       })

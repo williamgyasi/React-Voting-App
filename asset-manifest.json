@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/React-Voting-App/static/css/main.5f361e03.chunk.css",
+    "main.js": "/React-Voting-App/static/js/main.6280ad63.chunk.js",
+    "main.js.map": "/React-Voting-App/static/js/main.6280ad63.chunk.js.map",
+    "runtime-main.js": "/React-Voting-App/static/js/runtime-main.6c48f429.js",
+    "runtime-main.js.map": "/React-Voting-App/static/js/runtime-main.6c48f429.js.map",
+    "static/js/2.0e0d494f.chunk.js": "/React-Voting-App/static/js/2.0e0d494f.chunk.js",
+    "static/js/2.0e0d494f.chunk.js.map": "/React-Voting-App/static/js/2.0e0d494f.chunk.js.map",
+    "index.html": "/React-Voting-App/index.html",
+    "precache-manifest.32d4622206c9e745d725c8075781644b.js": "/React-Voting-App/precache-manifest.32d4622206c9e745d725c8075781644b.js",
+    "service-worker.js": "/React-Voting-App/service-worker.js",
+    "static/css/main.5f361e03.chunk.css.map": "/React-Voting-App/static/css/main.5f361e03.chunk.css.map",
+    "static/js/2.0e0d494f.chunk.js.LICENSE.txt": "/React-Voting-App/static/js/2.0e0d494f.chunk.js.LICENSE.txt",
+    "static/media/candidate-face.jpg": "/React-Voting-App/static/media/candidate-face.6596e7d6.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.6c48f429.js",
+    "static/js/2.0e0d494f.chunk.js",
+    "static/css/main.5f361e03.chunk.css",
+    "static/js/main.6280ad63.chunk.js"
+  ]
+}

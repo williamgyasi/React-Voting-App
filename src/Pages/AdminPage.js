@@ -7,6 +7,7 @@ import {firebaseAuth} from '../ContextProviders/UserAuthProvider'
 import Candidate from '../Components/CandidateComponent'
 
 const AdminPage =({})=>{
+    document.title="ADMIN PAGE"
     const{currentUser} = useContext(firebaseAuth).admin
     return(
         <div>

@@ -10,7 +10,7 @@ const AuthProvider = (props) => {
   const [errorState, setErrorState] = useState({email:false,password:false})
   const [token, setToken] = useState(null)
   const [userID,setUserID] =useState(null)
-  const [admin,setAdmin] =useState(null)
+  const [admin,setAdmin] =useState({})
 
 
   useEffect(()=>{
@@ -19,7 +19,7 @@ const AuthProvider = (props) => {
               setInit(false)
           }
           console.log("ADKABDJA")
-          setAdmin({currentUser})
+          setAdmin(currentUser)
           // setUserID(currentUser.uid)
           //   console.log(userID)
       })

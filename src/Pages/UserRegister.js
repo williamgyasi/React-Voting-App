@@ -25,7 +25,7 @@ const Signup = () => {
       <input onChange={handleChange} name="email" placeholder='email' value={inputs.email} />
       <input onChange={handleChange} name="password" placeholder='password' value={inputs.password} />
       <button>signup</button>
-      {errors.length > 0 ? errors.map(error => <p style={{color: 'red'}}>{error}</p> ) : null}
+      {/* {errors.length > 0 ? errors.map(error => <p style={{color: 'red'}}>{error}</p> ) : null} */}
     </form>
   );
 };

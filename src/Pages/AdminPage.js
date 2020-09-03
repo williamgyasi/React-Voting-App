@@ -1,6 +1,7 @@
 import React,{useContext} from 'react'
 import {Container,Button,Input,AppBar,Toolbar,IconButton,Typography} from '@material-ui/core'
 import MenuIcon from '@material-ui/icons/Menu';
+
 import {firebaseAuth} from '../ContextProviders/UserAuthProvider';
 import { UserOutlined, LaptopOutlined, NotificationOutlined } from '@ant-design/icons';
 import { Layout, Icon, Badge } from "antd";
@@ -18,6 +19,9 @@ const AdminPage =({})=>{
     document.title="ADMIN PAGE"
     const{email} = useContext(firebaseAuth).admin
     const{handleSignOut} = useContext(firebaseAuth)
+
+    
+      
     return(
         <div  >
             <AdminHeaderBar email={email} handleSignOut={handleSignOut} />
@@ -30,9 +34,9 @@ const AdminPage =({})=>{
                 marginTop:"10%"
             }}
             >
-                <AdminNav name={"Add Candidate"} link="/addcandidate" icon={<AddIcon style={{ fontSize: 80,color:"white" }}   />} />
-                <AdminNav name={"Add User"} icon={<PollIcon style={{ fontSize: 80,color:"white" }}  />} />
-                <AdminNav name={"Show Polls"} icon={<PersonAddIcon style={{ fontSize: 80,color:"white" }}  />} />
+                <AdminNav name={"Add Candidate"} link="/addcandidate" link={"/addcandidate"} icon={<AddIcon style={{ fontSize: 80,color:"white" }}   />} />
+                <AdminNav name={"Add User"} link={"/adduser"} icon={<PersonAddIcon style={{ fontSize: 80,color:"white" }}  />} />
+                <AdminNav name={"Show Polls"} link={"/showpolls"} icon={<PollIcon style={{ fontSize: 80,color:"white" }}  />} />
 
             </Container>
         

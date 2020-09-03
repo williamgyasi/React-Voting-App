@@ -10,6 +10,8 @@ import AdminPage from '../Pages/AdminPage'
 import AdminLogin from '../Pages/AdminLogin'
 
 import AddCandidate from '../Pages/AddCandidatePage'
+import AddUser from '../Pages/AddUserPage'
+import ShowPolls from '../Pages/ShowPolls'
 
 const AdminRouting=(props)=> {
   const {admin} =useContext(firebaseAuth)
@@ -18,6 +20,8 @@ const AdminRouting=(props)=> {
     <Router>
       <Route exact path='/admin' render={rProps=>admin ? <AdminPage/> :<AdminLogin />} />
       <Route exact path='/addcandidate' component={AddCandidate} />
+      <Route exact path='/adduser' component={AddCandidate} />
+      <Route exact path='/showpolls' component={AddCandidate} />
     </Router>
   
   );

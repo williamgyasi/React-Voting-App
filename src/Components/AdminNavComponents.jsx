@@ -1,12 +1,20 @@
 import React from 'react'
 import MenuIcon from '@material-ui/icons/Menu';
+
+import { useHistory } from "react-router-dom";
 import {Container,Button,Input,AppBar,Toolbar,IconButton,Typography} from '@material-ui/core'
 
 
 const AdminNav=({icon,name,link,onClick})=>{
+    const history = useHistory();
+    const routeChange = () =>{ 
+        let path = link; 
+        history.push(path);
+      }
+
     return(
         <div 
-        onClick={onclick}
+        onClick={routeChange}
         style={{
             width:300,
             cursor:"pointer",

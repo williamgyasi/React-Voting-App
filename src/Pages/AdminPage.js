@@ -7,11 +7,10 @@ import {firebaseAuth} from '../ContextProviders/UserAuthProvider'
 import Candidate from '../Components/CandidateComponent'
 
 const AdminPage =({})=>{
-    const userContext=useContext(firebaseAuth)
-    console.log(userContext)
+    const{currentUser} = useContext(firebaseAuth).admin
     return(
         <div>
-            <h3>WELCOME ADMIN EIII</h3>
+            <h3>WELCOME ADMIN {currentUser.email}</h3>
         </div>
 
     )

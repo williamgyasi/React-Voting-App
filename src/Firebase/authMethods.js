@@ -13,13 +13,18 @@ export const authMethods = {
         })
     },
   signin: (email, password,setErrors) => {
-    firebase.auth().signInWithEmailAndPassword(email,password,setErrors)
+    firebase.auth().signInWithEmailAndPassword(email,password)
     .then(currentuser=>{
       console.log("I HAVE LOGGED IN")
       console.log(currentuser)
     })
     .catch(error=>{
-      console.log("ERROR WITH SIGNIN" + error)
+      switch(error){
+        case 'auth/invalid-email' : 
+          setErrors({emailstate:true,message:error.message})
+        break;
+        default:
+      }
     })
     },
   

@@ -14,8 +14,6 @@ import UserRoutes from './UserRoutes'
 
 const RootRouting=(props)=> {
   const {userID} =useContext(firebaseAuth)
-  console.log(userID)
-
   return(
   <Router>
       <Route exact path='/' component={UserRoutes} />

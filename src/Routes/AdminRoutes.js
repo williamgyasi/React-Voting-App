@@ -10,10 +10,11 @@ import AdminPage from '../Pages/AdminPage'
 import AdminLogin from '../Pages/AdminLogin'
 
 const AdminRouting=(props)=> {
-  const {adminID} =useContext(firebaseAuth)
+  const {admin} =useContext(firebaseAuth)
+  console.log(admin)
   return (
     <Router>
-      <Route exact path='/admin' render={rProps=>adminID ? <AdminPage/> :<AdminLogin />} />
+      <Route exact path='/admin' render={rProps=>admin ? <AdminPage/> :<AdminLogin />} />
     </Router>
   
   );

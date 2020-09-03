@@ -6,10 +6,11 @@ export const firebaseAuth = React.createContext()
 const AuthProvider = (props) => {
     const [initializing, setInit] = useState(true)
     const [inputs, setInputs] = useState({email: '', password: ''})
-  const [errors, setErrors] = useState([])
+  const [errors, setErrors] = useState(null)
+  const [errorState, setErrorState] = useState({email:false,password:false})
   const [token, setToken] = useState(null)
   const [userID,setUserID] =useState(null)
-  const [adminID,setAdminID] =useState(null)
+  const [admin,setAdmin] =useState(null)
 
 
   useEffect(()=>{
@@ -18,8 +19,7 @@ const AuthProvider = (props) => {
               setInit(false)
           }
           console.log("ADKABDJA")
-          console.log(currentUser)
-
+          setAdmin({currentUser})
           // setUserID(currentUser.uid)
           //   console.log(userID)
       })
@@ -33,9 +33,9 @@ const AuthProvider = (props) => {
         return authMethods.signup(inputs.email,inputs.password,setErrors,setToken)
     }
 
-    const handleSignIn=(email,password)=>{
+    const handleSignIn=()=>{
       return authMethods.signin(inputs.email,inputs.password,setErrors)
-
+      
     }
 
     const handleSignOut=()=>{
@@ -45,7 +45,7 @@ const AuthProvider = (props) => {
     return (
         <firebaseAuth.Provider value={{
             userID,
-            adminID,
+            admin,
             handleSignup,
             handleSignOut,
             handleSignIn,

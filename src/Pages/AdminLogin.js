@@ -5,10 +5,8 @@ import {firebaseAuth} from '../ContextProviders/UserAuthProvider'
 
 const AdminLogin =({})=>{
     const {handleSignIn, inputs, setInputs,errors} = useContext(firebaseAuth)
-
     const handleChange = e => {
         const {name, value} = e.target
-        console.log(inputs)
         setInputs(prev => ({...prev, [name]: value}))
     }
     return(
@@ -30,8 +28,8 @@ const AdminLogin =({})=>{
                     <form noValidate autoComplete="off" >
                     <TextField
                     id="outlined-basic" 
-                    helperText={errors}
                     label="Email" 
+                    name="email"
                     fullWidth
                     variant="outlined" 
                     value={inputs.email}
@@ -45,6 +43,7 @@ const AdminLogin =({})=>{
                     id="outlined-basic" 
                     label="Password"
                     fullWidth
+                    name="password"
                     helperText={errors}
                     type="password"
                     value={inputs.password}
@@ -54,6 +53,7 @@ const AdminLogin =({})=>{
                     </form>
 
                     <Button
+                    onClick={handleSignIn}
                     color="primary" 
                     style={{marginTop:30}}
                     variant="contained">

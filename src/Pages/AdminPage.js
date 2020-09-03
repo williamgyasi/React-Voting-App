@@ -8,7 +8,10 @@ import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import Candidate from '../Components/CandidateComponent'
 
 import AdminHeaderBar from '../Components/AdminHeaderBar'
-
+import AdminNav from '../Components/AdminNavComponents'
+import AddIcon from '@material-ui/icons/Add';
+import PollIcon from '@material-ui/icons/Poll';
+import PersonAddIcon from '@material-ui/icons/PersonAdd';
 
 
 const AdminPage =({})=>{
@@ -18,9 +21,19 @@ const AdminPage =({})=>{
     return(
         <div  >
             <AdminHeaderBar email={email} handleSignOut={handleSignOut} />
+            <Container
+            style={{
+                display:"flex",
+                flexDirection:"row",
+                justifyContent:"space-between",
+                alignItems:"center",
+                marginTop:"10%"
+            }}
+            >
+                <AdminNav name={"Add Candidate"} link="/addcandidate" icon={<AddIcon style={{ fontSize: 80,color:"white" }}   />} />
+                <AdminNav name={"Add User"} icon={<PollIcon style={{ fontSize: 80,color:"white" }}  />} />
+                <AdminNav name={"Show Polls"} icon={<PersonAddIcon style={{ fontSize: 80,color:"white" }}  />} />
 
-            <Container>
-                
             </Container>
         
         </div>

@@ -5,7 +5,7 @@ import AuthProvider from '../ContextProviders/UserAuthProvider'
 import {firebaseAuth} from '../ContextProviders/UserAuthProvider'
 
 import Signup from '../Pages/UserRegister'
-import HomePage from "../Pages/HomePage";
+// import HomePage from "../Pages/HomePage";
 import AdminPage from '../Pages/AdminPage'
 import AdminLogin from '../Pages/AdminLogin'
 

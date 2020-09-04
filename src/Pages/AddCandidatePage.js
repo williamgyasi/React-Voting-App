@@ -1,4 +1,5 @@
 import React,{useContext,useState} from 'react'
+import clsx from 'clsx';
 import AdminHeaderBar from '../Components/AdminHeaderBar'
 import {firebaseAuth} from '../ContextProviders/UserAuthProvider';
 import { green } from '@material-ui/core/colors';
@@ -8,6 +9,11 @@ import InputHolder from '../Components/InputHolder'
 import {storageMethods} from '../Firebase/storageMethods'
 import {firestoreMethods} from '../Firebase/firestoreMethods'
 
+import Fab from '@material-ui/core/Fab';
+import CheckIcon from '@material-ui/icons/Check';
+import SaveIcon from '@material-ui/icons/Save';
+import SendIcon from '@material-ui/icons/Send';
+
 import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme) => ({
@@ -16,7 +22,9 @@ const useStyles = makeStyles((theme) => ({
     alignItems: 'center',
   },
   wrapper: {
+    margin: theme.spacing(1),
     display:"flex",
+    flexDirection:"row",
     alignItems:"center",
     justifyContent:"center",
     position: 'relative',
@@ -59,9 +67,9 @@ const AddCandidate =()=>{
     const{handleSignOut} = useContext(firebaseAuth)
 
 
-    // const buttonClassname = clsx({
-    //   [classes.buttonSuccess]: success,
-    // });
+    const buttonClassname = clsx({
+      [classes.buttonSuccess]: success,
+    });
   
     React.useEffect(() => {
       return () => {
@@ -92,14 +100,14 @@ const AddCandidate =()=>{
           }
         })
       
-      // if (!loading) {
-      //   setSuccess(false);
-      //   setLoading(true);
-      //   timer.current = setTimeout(() => {
-      //     setSuccess(true);
-      //     setLoading(false);
-      //   }, 2000);
-      // }
+      if (!loading) {
+        setSuccess(false);
+        setLoading(true);
+        timer.current = setTimeout(() => {
+          setSuccess(true);
+          setLoading(false);
+        }, 2000);
+      }
     };
 
     const textChange=(event)=>{
@@ -167,16 +175,16 @@ const AddCandidate =()=>{
             <div className={classes.wrapper}>
         <Button
           variant="contained"
-
-          style={{backgroundColor:"green",color:"white",margin:"auto"}}
-          // className={buttonClassname}
+          style={{backgroundColor:"green",color:"white",marginLeft:10}}
+          className={buttonClassname}
           disabled={loading}
           onClick={handleButtonClick}
         >
+          {success ? <CheckIcon style={{marginRight:10}} /> : <SendIcon style={{marginRight:10}} />}
           Submit
         </Button>
-        {loading && <CircularProgress size={24} className={classes.buttonProgress} />}
       </div>
+      
 
 
 

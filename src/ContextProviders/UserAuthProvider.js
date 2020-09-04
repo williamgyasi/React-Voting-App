@@ -9,8 +9,13 @@ const AuthProvider = (props) => {
   const [errors, setErrors] = useState(null)
   const [errorState, setErrorState] = useState({email:false,password:false})
   const [token, setToken] = useState(null)
-  const [userID,setUserID] =useState(null)
+  const [user,setUser] =useState({})
   const [admin,setAdmin] =useState({})
+
+  const checkLoggin=(currentUserID)=>{
+
+
+  }
 
 
   useEffect(()=>{
@@ -20,6 +25,9 @@ const AuthProvider = (props) => {
           }
           console.log("ADKABDJA")
           setAdmin(currentUser)
+          setUser(currentUser)
+          
+          
           console.log(currentUser)
           // setUserID(currentUser.uid)
           //   console.log(userID)
@@ -45,7 +53,7 @@ const AuthProvider = (props) => {
 
     return (
         <firebaseAuth.Provider value={{
-            userID,
+            user,
             admin,
             handleSignup,
             handleSignOut,

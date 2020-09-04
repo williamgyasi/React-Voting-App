@@ -10,5 +10,8 @@ export const firestoreMethods={
         .catch(error=>{
             console.log("Writing Error" + error)
         })
+    },
+    fetchCandidates:async()=>{
+        return await firebase.firestore().collection('Candidates')
     }
 }

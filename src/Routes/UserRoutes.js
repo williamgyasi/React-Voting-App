@@ -6,15 +6,16 @@ import AuthProvider from '../ContextProviders/UserAuthProvider'
 import {firebaseAuth} from '../ContextProviders/UserAuthProvider'
 
 import Signup from '../Pages/UserRegister'
-import HomePage from '../Pages/Homepage'
-// import HomePage from "../Pages/HomePage";
+import Homepage from "../Pages/UserHomePage";
+import UserLogin from '../Pages/UserLoginPage'
+
 
 const UserRouting=(props)=> {
-  const {userID} =useContext(firebaseAuth)
+  const {user} =useContext(firebaseAuth)
 
   return(
     <Router>
-      <Route exact path='/' render={rProps=>userID ? <HomePage/> :<Signup />} />
+      <Route exact path='/' render={rProps=>user ? <Homepage/> :<UserLogin />} />
     </Router>
   )
 

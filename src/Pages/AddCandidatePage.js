@@ -5,6 +5,8 @@ import { green } from '@material-ui/core/colors';
 import {Container,Button,Typography,CircularProgress,Box} from '@material-ui/core'
 import {Skeleton} from '@material-ui/lab'
 import InputHolder from '../Components/InputHolder'
+import {storageMethods} from '../Firebase/storageMethods'
+import {firestoreMethods} from '../Firebase/firestoreMethods'
 
 import { makeStyles } from '@material-ui/core/styles';
 
@@ -44,8 +46,10 @@ const useStyles = makeStyles((theme) => ({
 
 const AddCandidate =()=>{
   const[image,setImage] =useState(null)
+  const[imageURL,setImageURL]=useState('')
   const [candidateName,setCandidateName]=useState('')
   const [candidatePostion,setCandidatePosition]=useState('')
+  const [votes,setVotes]=useState(0)
   const classes = useStyles();
   const [loading, setLoading] = React.useState(false);
   const [success, setSuccess] = React.useState(false);
@@ -65,12 +69,29 @@ const AddCandidate =()=>{
       };
     }, []);
   
-    const handleButtonClick = () => {
-      const passsToDatabase={
-        candidateName,
-        candidatePostion,
-        image
-      }
+    const handleButtonClick = async () => {
+        await storageMethods.storeImage(imageURL,candidateName)
+        .on('state_changed',
+        (snapshot)=>{
+
+        },
+        (error)=>{
+
+        },
+        async()=>{
+          const imageDownloadUrl=await storageMethods.getImageDownloadURL(candidateName)
+          console.log(imageDownloadUrl)
+          if(imageDownloadUrl){
+            const candidatePayload={
+              candidateName,
+              candidatePostion,
+              imageDownloadUrl,
+              votes
+            }
+            firestoreMethods.addCandidate(candidatePayload)
+          }
+        })
+      
       // if (!loading) {
       //   setSuccess(false);
       //   setLoading(true);
@@ -84,12 +105,9 @@ const AddCandidate =()=>{
     const textChange=(event)=>{
       if(event.target.name==="name"){
         setCandidateName(event.target.value)
-
-        console.log(candidateName)
       }
       else{
         setCandidatePosition(event.target.value)
-
       }
       
       
@@ -97,6 +115,8 @@ const AddCandidate =()=>{
 
     const handleChange=(event)=>{
       setImage(URL.createObjectURL(event.target.files[0]))
+      setImageURL(event.target.files[0])
+
     }
 
     return(
@@ -109,7 +129,7 @@ const AddCandidate =()=>{
           }}>
             <InputHolder onInputChange={textChange} name={"name"} type={"text"} inputText={"Candidate Full Name"} />
 
-            <InputHolder onInputChange={textChange} name={"position"} type={"text"} inputText={"Aspiring Position"} autoComplete={true} />
+            <InputHolder onInputChange={textChange} name={"position"} type={"text"} inputText={"Aspiring Position"}  />
 
             <div style={{
               display:"flex",
